@@ -1,0 +1,45 @@
+Description: Debian library path conventions
+Author: A. Maitland Bottoms <bottoms@debian.org>
+Forwarded: not-needed
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -32,6 +32,10 @@
+ 
+ list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/Modules)
+ 
++if(NOT LIB_INSTALL_DIR)
++   set(LIB_INSTALL_DIR lib)
++endif()
++
+ ########################################################################
+ # Compiler specific setup
+ ########################################################################
+@@ -124,7 +128,7 @@
+ 
+ set(prefix ${CMAKE_INSTALL_PREFIX})
+ set(exec_prefix \${prefix})
+-set(libdir \${exec_prefix}/lib)
++set(libdir \${exec_prefix}/${LIB_INSTALL_DIR})
+ set(includedir \${prefix}/include)
+ 
+ CONFIGURE_FILE(
+@@ -134,5 +138,5 @@
+ 
+ INSTALL(
+     FILES ${CMAKE_CURRENT_BINARY_DIR}/libosmosdr.pc
+-    DESTINATION lib/pkgconfig
++    DESTINATION ${LIB_INSTALL_DIR}/pkgconfig
+ )
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -63,7 +63,7 @@
+ # Install built library files & utilities
+ ########################################################################
+ install(TARGETS osmosdr_shared osmosdr_static osmo_sdr
+-    LIBRARY DESTINATION lib${LIB_SUFFIX} # .so/.dylib file
+-    ARCHIVE DESTINATION lib${LIB_SUFFIX} # .lib file
++    LIBRARY DESTINATION ${LIB_INSTALL_DIR} # .so/.dylib file
++    ARCHIVE DESTINATION ${LIB_INSTALL_DIR} # .lib file
+     RUNTIME DESTINATION bin              # .dll file
+ )

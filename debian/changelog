@@ -1,5 +1,91 @@
-template-repository (1.0-1) unstable; urgency=medium
+libosmosdr (0.1.8.effcaa7-10) unstable; urgency=medium
 
-  * Initial release
+  * Add AppStream metadata
+  * simplify Build-Depends:
+  * update watch file
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- A. Maitland Bottoms <bottoms@debian.org>  Thu, 14 Dec 2023 21:11:13 -0500
+
+libosmosdr (0.1.8.effcaa7-9) unstable; urgency=medium
+
+  * upload to unstable (Closes: #1056726)
+  * change osmo-sdr section to comm (Closes: #973584)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Tue, 05 Dec 2023 21:53:13 -0500
+
+libosmosdr (0.1.8.effcaa7-8) experimental; urgency=medium
+
+  [ Chris Hofstaedtler ]
+  * Remove long obsolete postinst tasks: udev reload, ldconfig.
+  * Move udev files from /lib to /usr/lib, including protective diversion
+    against Multi-Arch: same file loss scenario (DEP17 P7 M10). (Closes: #-1)
+
+  [ A. Maitland Bottoms ]
+  * update Standards-Version, extra->optional, use debhelper-compat, https
+  * change to salsa URLs
+  * upload to experimental as requested in #1057190
+  
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sun, 03 Dec 2023 14:45:15 -0500
+
+libosmosdr (0.1.8.effcaa7-7) unstable; urgency=medium
+
+  * build on kfreebsd-any
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Thu, 28 Apr 2016 23:26:19 -0400
+
+libosmosdr (0.1.8.effcaa7-6) unstable; urgency=medium
+
+  * update to v0.1-10-gba4fd96
+  * more lintian fixes
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Tue, 26 Apr 2016 22:04:23 -0400
+
+libosmosdr (0.1.8.effcaa7-5) unstable; urgency=medium
+
+  * lintian fixes
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Wed, 25 Nov 2015 22:12:17 -0500
+
+libosmosdr (0.1.8.effcaa7-4) unstable; urgency=low
+
+  * fix short descriptions (Closes: #798667)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Fri, 11 Sep 2015 23:26:51 -0400
+
+libosmosdr (0.1.8.effcaa7-3) unstable; urgency=low
+
+  * really update Vcs-*
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Thu, 10 Sep 2015 21:50:09 -0400
+
+libosmosdr (0.1.8.effcaa7-2) unstable; urgency=medium
+
+  * add watch file, update Vcs-* 
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Thu, 10 Sep 2015 17:35:46 -0400
+
+libosmosdr (0.1.8.effcaa7-1) unstable; urgency=low
+
+  * Update, use pkg-config
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sat, 12 Apr 2014 10:48:02 -0400
+
+libosmosdr (0.1.7.cd37e9-2~bpo70+1) wheezy-backports; urgency=low
+
+  * Rebuild for wheezy-backports.
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Tue, 21 Jan 2014 20:19:34 -0500
+
+libosmosdr (0.1.7.cd37e9-2) unstable; urgency=low
+
+  * Use kfreebsd libusb
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sat, 02 Nov 2013 20:10:06 -0400
+
+libosmosdr (0.1.7.cd37e9-1) unstable; urgency=low
+
+  * New package (Closes: #724965)
+  * Match GNU Radio live distribution 2013-0926
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sun, 29 Sep 2013 22:43:43 -0400
+

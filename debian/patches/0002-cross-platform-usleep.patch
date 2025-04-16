@@ -1,0 +1,31 @@
+From ba4fd96622606620ff86141b4d0aa564712a735a Mon Sep 17 00:00:00 2001
+From: Dimitri Stolnikov <horiz0n@gmx.net>
+Date: Fri, 11 Dec 2015 18:45:23 +0100
+Subject: [PATCH 2/2] cross platform usleep()
+
+---
+ software/libosmosdr/src/libosmosdr.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/software/libosmosdr/src/libosmosdr.c b/software/libosmosdr/src/libosmosdr.c
+index 139a96b..67a1517 100644
+--- a/src/libosmosdr.c
++++ b/src/libosmosdr.c
+@@ -27,6 +27,14 @@
+ #define min(a, b) (((a) < (b)) ? (a) : (b))
+ #endif
+ 
++//cross platform usleep()
++#ifdef _MSC_VER
++#include <windows.h>
++#define usleep(t) Sleep((t)/1000)
++#else
++#include <unistd.h>
++#endif
++
+ #include <libusb.h>
+ 
+ /*
+-- 
+2.1.4
+
