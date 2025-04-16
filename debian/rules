@@ -1,4 +1,19 @@
 #!/usr/bin/make -f
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+export DEB_HOST_MULTIARCH
+DEB_BUILD_MAINT_OPTIONS += hardening=+all
+export DEB_BUILD_MAINT_OPTIONS
 
 %:
-	dh $@
+	dh $@ --buildsystem=cmake
+
+override_dh_auto_configure: debian/librtlsdr0.udev
+	dh_auto_configure -- -DLIB_INSTALL_DIR=lib/$(DEB_HOST_MULTIARCH)
+
+debian/librtlsdr0.udev: osmosdr.rules
+	cp -p osmosdr.rules debian/libosmosdr0.udev
+
+override_dh_installudev:
+	dh_installudev
+	set -e; if test -d debian/libosmosdr0/lib/udev/rules.d; then mv debian/libosmosdr0/lib/udev debian/libosmosdr0/usr/lib; fi
+	set -e; if test -d debian/libosmosdr0/lib; then rmdir debian/libosmosdr0/lib; fi

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+  <id>libosmosdr2</id>
+  <metadata_license>MIT</metadata_license>
+  <name>libosmosdr0</name>
+  <summary>Control of OsmoSDR hardware radio receivers</summary>
+  <description>
+    <p>
+OsmoSDR is a (now obsolete) 100% Free Software based small form-factor inexpensive SDR (Software Defined Radio) project.
+    </p>
+  </description>
+  <provides>
+    <modalias>usb:v16C0p0763d*</modalias>
+  </provides>
+</component>

@@ -1,0 +1,2 @@
+usr/lib/*/lib*.so.*
+debian/libosmosdr0.metainfo.xml usr/share/metainfo
